@@ -1798,14 +1798,14 @@
 1798,Atinandole,V,V,V,L,E,E,V,V,L,L,L
 1799,Atinandole,V,V,L,E,L,V,E,E,E,L,V
 1800,Atinandole,V,E,L,V,V,L,V,V,E,L,V
-1801,"Atotonilco, sonora",V,V,V,L,L,V,E,V,L,L,V
-1802,"Atotonilco, sonora",V,V,V,L,L,V,E,V,V,L,V
-1803,"Atotonilco, sonora",V,V,V,L,L,V,V,V,L,L,V
-1804,"Atotonilco, sonora",V,V,V,L,L,V,V,V,V,L,V
-1805,"Atotonilco, sonora",V,E,V,L,L,V,E,V,L,L,V
-1806,"Atotonilco, sonora",V,E,V,L,L,V,E,V,V,L,V
-1807,"Atotonilco, sonora",V,E,V,L,L,V,V,V,L,L,V
-1808,"Atotonilco, sonora",V,E,V,L,L,V,V,V,V,L,V
+1801,Atotonilco sonora,V,V,V,L,L,V,E,V,L,L,V
+1802,Atotonilco sonora,V,V,V,L,L,V,E,V,V,L,V
+1803,Atotonilco sonora,V,V,V,L,L,V,V,V,L,L,V
+1804,Atotonilco sonora,V,V,V,L,L,V,V,V,V,L,V
+1805,Atotonilco sonora,V,E,V,L,L,V,E,V,L,L,V
+1806,Atotonilco sonora,V,E,V,L,L,V,E,V,V,L,V
+1807,Atotonilco sonora,V,E,V,L,L,V,V,V,L,L,V
+1808,Atotonilco sonora,V,E,V,L,L,V,V,V,V,L,V
 1809,Augusto García ⚽️,V,V,V,V,E,E,V,E,E,L,L
 1810,Augusto García ⚽️,V,V,V,V,E,E,V,E,V,L,L
 1811,Augusto García ⚽️,V,V,V,V,E,E,V,E,L,L,L
@@ -2080,13 +2080,13 @@
 2080,Bautista Abarca,V,E,V,V,V,V,E,L,E,L,V
 2081,Bautista Abarca,L,E,L,L,V,L,E,E,L,L,L
 2082,Bautista Abarca,E,V,L,L,V,E,L,E,V,E,L
-2083,"Be A,C,M",V,L,E,E,V,L,L,E,E,L,L
-2084,"Be A,C,M",L,L,L,L,L,L,L,L,L,L,L
-2085,"Be A,C,M",E,V,E,V,E,E,V,V,V,E,V
-2086,"Be A,C,M",V,E,V,L,V,L,E,E,L,V,E
-2087,"Be A,C,M",L,V,L,E,E,V,L,E,V,L,L
-2088,"Be A,C,M",E,E,E,V,E,L,E,E,L,L,V
-2089,"Be A,C,M",V,V,L,L,L,V,L,V,L,V,L
+2083,Be ACM,V,L,E,E,V,L,L,E,E,L,L
+2084,Be ACM,L,L,L,L,L,L,L,L,L,L,L
+2085,Be ACM,E,V,E,V,E,E,V,V,V,E,V
+2086,Be ACM,V,E,V,L,V,L,E,E,L,V,E
+2087,Be ACM,L,V,L,E,E,V,L,E,V,L,L
+2088,Be ACM,E,E,E,V,E,L,E,E,L,L,V
+2089,Be ACM,V,V,L,L,L,V,L,V,L,V,L
 2090,Be Artemio,E,V,V,E,E,L,L,E,L,L,L
 2091,Be Avefenix,V,L,E,E,E,V,L,E,E,L,V
 2092,Be Contador,V,E,L,V,V,L,L,V,L,L,V
@@ -16715,8 +16715,8 @@
 16715,Ozielgr2,V,L,E,L,E,L,V,V,L,V,E
 16716,Ozielgr3,V,L,L,L,V,L,V,L,E,V,L
 16717,Ozielgr4,V,V,V,E,L,L,V,E,E,L,L
-16718,"P/P, G.B, F,R. Flex",V,V,V,L,L,V,V,V,V,L,E
-16719,"P/P, G.B, F,R. Flex",V,V,E,L,V,V,E,V,L,V,V
+16718,P/P G.B FR. Flex,V,V,V,L,L,V,V,V,V,L,E
+16719,P/P G.B FR. Flex,V,V,E,L,V,V,E,V,L,V,V
 16720,Pabel,L,L,L,L,L,E,L,E,V,L,L
 16721,Pabel,V,V,E,E,L,L,V,V,V,L,L
 16722,Pablito jr,V,L,L,L,L,L,L,V,E,L,L
@@ -21563,12 +21563,12 @@
 21563,Victorgool,V,V,V,L,L,E,E,E,E,V,L
 21564,Victorgool,V,E,E,V,E,L,L,E,E,V,V
 21565,Victorgool,E,V,V,L,E,V,V,V,E,E,L
-21566,"Victoria s,m",V,V,L,L,L,E,L,E,L,L,E
-21567,"Victoria s,m",V,L,V,L,L,V,L,V,L,L,L
-21568,"Victoria s,m",L,L,L,L,L,V,L,L,L,L,E
-21569,"Victoria s,m",V,V,V,L,L,L,E,L,L,L,V
-21570,"Victoria s,m",E,E,L,L,L,V,L,V,L,L,E
-21571,"Victoria s,m",V,V,V,L,L,E,E,V,V,L,E
+21566,Victoria sm,V,V,L,L,L,E,L,E,L,L,E
+21567,Victoria sm,V,L,V,L,L,V,L,V,L,L,L
+21568,Victoria sm,L,L,L,L,L,V,L,L,L,L,E
+21569,Victoria sm,V,V,V,L,L,L,E,L,L,L,V
+21570,Victoria sm,E,E,L,L,L,V,L,V,L,L,E
+21571,Victoria sm,V,V,V,L,L,E,E,V,V,L,E
 21572,VIDALES 1,V,E,V,L,E,V,E,E,V,L,E
 21573,VIDALES 2,V,V,V,L,V,V,E,L,E,L,E
 21574,Viianey SH,L,E,V,E,L,E,L,E,V,L,E
