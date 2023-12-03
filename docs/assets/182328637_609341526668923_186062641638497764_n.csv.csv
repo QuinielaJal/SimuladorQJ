@@ -1583,14 +1583,14 @@
 1583,Atony,E,L,E,L,V,V,L,L,V,L,L
 1584,Atony,E,E,L,V,V,L,L,L,L,E,V
 1585,Atony,V,V,V,E,L,L,E,V,L,L,L
-1586,"Atotonilco, sonora",L,L,L,E,V,L,V,L,L,L,L
-1587,"Atotonilco, sonora",L,L,L,E,V,L,V,L,L,V,L
-1588,"Atotonilco, sonora",L,L,L,E,V,E,V,L,L,L,L
-1589,"Atotonilco, sonora",L,L,L,E,V,E,V,L,L,V,L
-1590,"Atotonilco, sonora",L,L,L,V,V,L,V,L,L,L,L
-1591,"Atotonilco, sonora",L,L,L,V,V,L,V,L,L,V,L
-1592,"Atotonilco, sonora",L,L,L,V,V,E,V,L,L,L,L
-1593,"Atotonilco, sonora",L,L,L,V,V,E,V,L,L,V,L
+1586,Atotonilco sonora,L,L,L,E,V,L,V,L,L,L,L
+1587,Atotonilco sonora,L,L,L,E,V,L,V,L,L,V,L
+1588,Atotonilco sonora,L,L,L,E,V,E,V,L,L,L,L
+1589,Atotonilco sonora,L,L,L,E,V,E,V,L,L,V,L
+1590,Atotonilco sonora,L,L,L,V,V,L,V,L,L,L,L
+1591,Atotonilco sonora,L,L,L,V,V,L,V,L,L,V,L
+1592,Atotonilco sonora,L,L,L,V,V,E,V,L,L,L,L
+1593,Atotonilco sonora,L,L,L,V,V,E,V,L,L,V,L
 1594,Aurelio 77,L,L,L,L,L,L,V,V,L,L,L
 1595,Aurelio 77,L,L,L,L,L,L,L,L,L,L,L
 1596,Aurelio 77,L,L,L,L,L,L,L,V,L,L,L
@@ -1718,12 +1718,12 @@
 1718,Barrilito🖤,L,L,L,V,L,E,E,V,L,L,L
 1719,Barrilito🖤,L,E,L,E,V,L,V,V,L,L,L
 1720,Barrilito🖤,L,L,L,L,V,L,V,E,E,L,L
-1721,"Be A,C,M",V,E,L,E,V,V,L,V,L,V,L
-1722,"Be A,C,M",L,L,E,L,L,L,E,L,E,E,L
-1723,"Be A,C,M",E,E,L,E,E,V,L,L,V,L,V
-1724,"Be A,C,M",L,L,L,L,V,L,V,L,V,V,L
-1725,"Be A,C,M",V,L,L,L,L,V,L,V,L,L,V
-1726,"Be A,C,M",E,V,L,E,E,L,V,L,V,E,L
+1721,Be ACM,V,E,L,E,V,V,L,V,L,V,L
+1722,Be ACM,L,L,E,L,L,L,E,L,E,E,L
+1723,Be ACM,E,E,L,E,E,V,L,L,V,L,V
+1724,Be ACM,L,L,L,L,V,L,V,L,V,V,L
+1725,Be ACM,V,L,L,L,L,V,L,V,L,L,V
+1726,Be ACM,E,V,L,E,E,L,V,L,V,E,L
 1727,Be Artemio,L,L,L,L,V,E,V,L,L,L,L
 1728,Be Avefenix,L,V,L,E,L,V,V,V,V,L,L
 1729,Be bebe,L,L,L,E,E,E,E,L,L,E,L
@@ -6261,7 +6261,7 @@
 6261,GL CESAR 2,L,L,L,V,V,E,V,V,L,E,E
 6262,GL CHUPAS,L,L,L,E,V,V,L,L,L,E,L
 6263,GL EL CANELAS,L,L,L,V,E,V,L,L,L,L,E
-6264,"GL ELPIOR,DLOPIOR",V,E,L,E,E,L,V,L,L,V,L
+6264,GL ELPIORDLOPIOR,V,E,L,E,E,L,V,L,L,V,L
 6265,GL EVERARDO,L,L,L,E,V,L,L,L,V,E,L
 6266,GL GORY NIEVES,L,L,L,L,V,L,L,V,L,L,L
 6267,GL HMRA,L,L,L,V,E,L,E,L,V,E,E
@@ -9621,8 +9621,8 @@
 9621,M Jordan,L,E,L,E,E,L,V,L,E,E,L
 9622,M Jordan,L,V,L,E,L,E,L,L,V,V,E
 9623,M Jordan,L,V,L,E,L,E,V,L,V,V,E
-9624,"M, Montiel",E,L,L,E,V,E,V,E,L,L,L
-9625,"M, Montiel",V,L,L,V,E,E,V,E,L,E,L
+9624,M Montiel,E,L,L,E,V,E,V,E,L,L,L
+9625,M Montiel,V,L,L,V,E,E,V,E,L,E,L
 9626,M...L...P...,L,L,V,L,L,L,V,L,V,V,L
 9627,M...L...P...,L,L,E,L,L,V,V,L,E,L,L
 9628,M1970,L,L,L,L,L,L,L,L,L,V,L
