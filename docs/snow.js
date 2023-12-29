@@ -6,7 +6,7 @@ var Snow = function (options) {
     document.getElementById(options.id).style.left = 0;
     document.getElementById(options.id).style.right = 0;
     document.getElementById(options.id).style.bottom = 0;
-    document.getElementById(options.id).style.zIndex = -1;
+    document.getElementById(options.id).style.zIndex = -10;
     document.getElementById(options.id).style.pointerEvents = "none";
 
     //create canvas
