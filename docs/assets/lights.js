@@ -1,10 +1,8 @@
-// Script para insertar luces navideñas en cualquier página
-(function() {
-  // ======== CONFIGURACIÓN ========
-  const lightSize = 0.4; // Cambia este valor: 0.5 = mitad, 1 = normal, 1.5 = 50% más grande, 2 = doble, etc.
-  // ===============================
 
-  // Cálculos automáticos basados en el tamaño
+(function() {
+  // ======== Config ========
+  const lightSize = 0.4;
+
   const lightWidth = 12 * lightSize;
   const lightHeight = 28 * lightSize;
   const lightSpacing = 20 * lightSize;
@@ -18,14 +16,12 @@
   const glowSpread = 3 * lightSize;
   const numberOfLights = 42;
 
-  // Crear el HTML de las luces
   const lightsHTML = `
     <ul class="lightrope">
       ${Array(numberOfLights).fill('<li></li>').join('')}
     </ul>
   `;
 
-  // Crear el CSS con las variables calculadas
   const style = document.createElement('style');
   style.textContent = `
     .lightrope {
@@ -135,18 +131,15 @@
     }
   `;
 
-  // Función para insertar las luces
   function insertLights() {
     // Agregar el CSS
     document.head.appendChild(style);
-    
     // Crear y agregar el HTML
     const container = document.createElement('div');
     container.innerHTML = lightsHTML;
     document.body.insertBefore(container.firstElementChild, document.body.firstChild);
   }
 
-  // Insertar cuando el DOM esté listo
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', insertLights);
   } else {
