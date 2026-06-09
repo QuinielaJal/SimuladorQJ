@@ -107,7 +107,10 @@
 
   let ball    = randomBall();
   let touches = 0;
-  let showCounter = false; // set to true to display the score counter
+  // Record persisted en localStorage
+  let record = 0;
+  try { record = parseInt(localStorage.getItem('ballRecord')) || 0; } catch (e) { record = 0; }
+  let showCounter = true; // set to true to display the score counter
 
   function drawShading(x, y, r) {
     ctx.save();
@@ -132,18 +135,36 @@
 
     if (showCounter) {
       ctx.save();
-      ctx.fillStyle   = 'rgba(255,255,255,0.9)';
-      ctx.font        = 'bold 28px Arial';
-      ctx.shadowColor = 'rgba(0,0,0,0.6)';
-      ctx.shadowBlur  = 4;
-      ctx.fillText(touches, 20, 44);
+        let counterAlpha = 0;
+        if (touches === 0) {
+          counterAlpha = 0;
+        } else if (touches >= 5) {
+          counterAlpha = 0.45; // higher opacity when score >= 5
+        } else {
+          counterAlpha = 0.05;
+        }
+        // dibujar contador grande y centrado usando fillStyle con alpha
+        ctx.font        = 'bold 96px Arial';
+        ctx.shadowColor = 'rgba(0,0,0,0.6)';
+        ctx.shadowBlur  = 8;
+        const scoreText = String(touches);
+        const scoreMetrics = ctx.measureText(scoreText);
+        const scoreX = (W / 2) - (scoreMetrics.width / 2);
+        const scoreY = (H / 2) + 24; // approximate vertical center baseline
+        ctx.fillStyle = `rgba(0,0,0,${counterAlpha})`;
+        ctx.fillText(scoreText, scoreX, scoreY);
+
+        ctx.font = '12px Arial';
+        ctx.shadowBlur = 1;
+        ctx.fillStyle = 'rgba(255,255,255,0.5)';
+        ctx.fillText(record + '★', 10, 32);
       ctx.restore();
     }
 
       ctx.save();
       // apply reduced opacity when the ball is 'dead'
       const prevAlpha = ctx.globalAlpha;
-      ctx.globalAlpha = ball.dead ? 0.65 : 1.0;
+      ctx.globalAlpha = ball.dead ? 0.5 : 1.0;
       ctx.translate(ball.x, ball.y);
       ctx.rotate(ball.rotation);
       const currentImg = ballImages[ballSpriteIndex] || ballImg;
@@ -196,8 +217,10 @@
     if (ball.y + ball.r >= H) {
       ball.y  = H - ball.r;
       ball.vy = -ball.vy * BOUNCE;
+      // Reiniciar el puntaje cuando toca el suelo (guardar récord si aplica)
+      try { if (touches > record) { record = touches; localStorage.setItem('ballRecord', String(record)); } } catch (e) { }
+      touches = 0;
       if (Math.abs(ball.vy) < 0.5) {
-        touches   = 0;
         ball.vy   = 0;
         ball.vx   = 0;
         ball.dead = true;
@@ -235,6 +258,7 @@
       ball.vx = -(dx / dist) * power;
       ball.vy = -16;
       touches++;
+      // no actualizar récord aquí; se guarda al tocar el suelo
       if (touches % 2 === 0) {
         ballSpriteIndex = (ballSpriteIndex + 1) % BALL_SPRITE_COUNT;
       }
