@@ -4,13 +4,13 @@
   function init() {
 
   // Block pinch-zoom gestures (best-effort). Requires meta viewport change too.
-  window.addEventListener('touchmove', function(e) {
-    if (e.touches && e.touches.length > 1) {
-      e.preventDefault();
-    }
-  }, { passive: false });
-  window.addEventListener('gesturestart', function(e) { e.preventDefault(); });
-  window.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+  // window.addEventListener('touchmove', function(e) {
+  //   if (e.touches && e.touches.length > 1) {
+  //     e.preventDefault();
+  //   }
+  // }, { passive: false });
+  // window.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+  // window.addEventListener('gesturechange', function(e) { e.preventDefault(); });
 
   const host = document.createElement('div');
   Object.assign(host.style, {
@@ -111,6 +111,15 @@
   let record = 0;
   try { record = parseInt(localStorage.getItem('ballRecord')) || 0; } catch (e) { record = 0; }
   let showCounter = true; // set to true to display the score counter
+  let isZoomed = false; // detectar si está en zoom
+
+  // Detectar cambios de zoom en visualViewport
+  function checkZoom() {
+    const vp = window.visualViewport;
+    if (vp) {
+      isZoomed = Math.abs(vp.scale - 1) > 0.02;
+    }
+  }
 
   function drawShading(x, y, r) {
     ctx.save();
@@ -157,10 +166,12 @@
         ctx.font = '12px Arial';
         ctx.shadowBlur = 1;
         ctx.fillStyle = 'rgba(255,255,255,0.5)';
-        ctx.fillText(record + '★', 10, 32);
+        ctx.fillText(record + '★', 10, 52);
       ctx.restore();
     }
 
+    // NO DIBUJAR LA PELOTITA SI ESTÁ EN ZOOM
+    if (!isZoomed) {
       ctx.save();
       // apply reduced opacity when the ball is 'dead'
       const prevAlpha = ctx.globalAlpha;
@@ -194,6 +205,7 @@
       ctx.restore();
 
       drawShading(ball.x, ball.y, ball.r);
+    }
   }
 
   function update() {
@@ -233,11 +245,15 @@
 
   function animate() {
     update();
+    checkZoom(); // Verificar zoom en cada frame
     draw();
     requestAnimationFrame(animate);
   }
 
   function handleTouch(e) {
+    // No permitir interacción si está en zoom
+    if (isZoomed) return;
+
     const vp    = window.visualViewport;
     const scale = vp ? vp.scale : 1;
     const touch = e.touches[0];
@@ -258,11 +274,70 @@
       ball.vx = -(dx / dist) * power;
       ball.vy = -16;
       touches++;
+      // check milestone effects
+      triggerMilestone(touches);
       // no actualizar récord aquí; se guarda al tocar el suelo
       if (touches % 2 === 0) {
         ballSpriteIndex = (ballSpriteIndex + 1) % BALL_SPRITE_COUNT;
       }
     }
+  }
+
+  // Create minimal CSS for milestone animations once
+  (function injectMilestoneStyles(){
+    const css = `
+    .milestone-host{ position: absolute; left:0; top:0; width:100%; height:100%; pointer-events:none; overflow:visible; }
+    .milestone-emoji{ position: absolute; will-change: transform, opacity; transform-origin: center bottom; }
+    @keyframes rise-and-fade{ 0%{ transform: translateY(0) scale(1); opacity:1 } 100%{ transform: translateY(-99vh) scale(0.8); opacity:0 } }
+    .rise{ animation: rise-and-fade 2200ms cubic-bezier(.16,.9,.3,1) forwards; }
+    `;
+    const s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);
+  })();
+
+  function triggerMilestone(score){
+    try {
+      if (!host) return;
+      const mh = host.querySelector('.milestone-host') || (function(){ const d=document.createElement('div'); d.className='milestone-host'; host.appendChild(d); return d; })();
+
+      function spawnEmojis(list, min=5, max=10) {
+        const count = Math.min(max, Math.max(min, Math.floor(Math.random()*5)+4));
+        for(let i=0;i<count;i++){
+          const el = document.createElement('div');
+          el.className = 'milestone-emoji';
+          const size = (12 + Math.random()*36)|0; // more variety
+          el.style.fontSize = size + 'px';
+          // spread across width and slightly beyond for variety
+          el.style.left = (5 + Math.random()*90) + '%';
+          // start near bottom but variable
+          el.style.bottom = (4 + Math.random()*8) + '%';
+          // start hidden while waiting for delay so they don't sit static on the floor
+          el.style.opacity = '0';
+          el.textContent = list[Math.floor(Math.random()*list.length)];
+          // random horizontal offset and rotation
+          const tx = (Math.random()*200 - 100)|0;
+          const rot = (Math.random()*60 - 30)|0;
+          // start slightly below so initial delay doesn't show them sitting on the floor
+          el.style.transform = `translateY(0px) translateX(${tx}px) rotate(${rot}deg)`;
+          // random animation duration and delay
+          const dur = 4800 + Math.floor(Math.random()*1600); // 4800-6400ms
+          const delay = i * 80 + Math.floor(Math.random()*160);
+          el.style.animation = `rise-and-fade ${dur}ms cubic-bezier(.16,.9,.3,1) ${delay}ms forwards`;
+          mh.appendChild(el);
+          // show after small stagger
+          setTimeout(()=>{ el.style.opacity='1'; }, delay);
+          // remove after animation ends
+          setTimeout(()=>{ try{ mh.removeChild(el);}catch(e){} }, dur + delay + 600);
+        }
+      }
+      // milestones
+      if ([10, 75].includes(score)) {
+        spawnEmojis(['👏','👏🏻','👏🏼','👏🏽','👏🏾','👏🏿', '🇲🇽']);
+      } else if ([25, 125].includes(score)) {
+        spawnEmojis(['🔥', '🔥', '🔥', '🇲🇽'], 8, 12);
+      } else if (score % 50 === 0) {
+        spawnEmojis(['🏆','🏅','🏆','🏆', '🇲🇽'], 10, 12);
+      }
+    } catch (err) { console.error('milestone error', err); }
   }
 
   function onViewportChange() {
@@ -275,6 +350,7 @@
     ball.y = ry * vh();
     canvas._lastW = vw();
     canvas._lastH = vh();
+    checkZoom(); // Verificar zoom al cambiar viewport
   }
 
   canvas._lastW = vw();
